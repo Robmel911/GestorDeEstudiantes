@@ -11,6 +11,7 @@ namespace MenuPrincipal
 
             do
             {
+                Console.Clear();
                 Console.WriteLine();
                 Console.WriteLine("GestorDeEstudiantes - Menú");
                 Console.WriteLine("1. Registrar estudiante");
@@ -25,6 +26,7 @@ namespace MenuPrincipal
                     case "1":
                         try
                         {
+                            Console.Clear();    
                             Utilidades.Utilidades.RegistrarEstudiante();
                         }
                         catch (Exception ex)
@@ -34,7 +36,9 @@ namespace MenuPrincipal
                         break;
 
                     case "2":
+                        Console.Clear();
                         Utilidades.Utilidades.MostrarResumenEstudiante();
+                        esperar();
                         break;
 
                     case "3":
@@ -49,7 +53,10 @@ namespace MenuPrincipal
                             double? promedio = Utilidades.Utilidades.CalcularPromedioEstudiante();
                             if (promedio.HasValue)
                             {
+                                Console.Clear();
                                 Console.WriteLine("Promedio calculado: {0:F2}", promedio.Value);
+                                esperar();
+
                             }
                         }
                         catch (Exception ex)
@@ -69,6 +76,11 @@ namespace MenuPrincipal
                 }
 
             } while (!salir);
+        }
+        public static void esperar()
+        {
+            Console.WriteLine("Presione Enter para continuar...");
+            Console.ReadLine();
         }
     }
 }
